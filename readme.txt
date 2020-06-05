@@ -1,32 +1,12 @@
-COM S 352
-Project # 1
-Jooseung Song
-shear.cpp
 
 shear.cpp
--Added rowsort, rowrevsort, colsort, shear_sort_thread and shear_sort
-this reads 2d array input from text file and sort it using multiple threads
-It prints the same result in any possible case. Tested multiple nxn arrays.
-Printed same result in any thread running order.
+-rowsort, rowrevsort, colsort, shear_sort_thread, shear_sort
+멀티 스레드 환경에서 2차원 어레이를 읽고 각 스레드에서 따로 어레이를 분류합니다.
+상호배제 원칙을 준수하여 각 스레드가 각자의 일을 하면서도 의도된 결과를 도출하도록 테스트하는 코드입니다.
+테스트 결과 스레드가 어느 순서로 실행되든지 같은 결과를 프린트 했습니다.
 	rowsort, rowrevsort, colsort
-	-separated sort function into 3 direction
+	-3가지 방향으로 분리된 재배열 알고리즘을 각자 실행합니다.
 	shear_sort_thread
-	-use conditional variable to wait until all thread run one phase each time together
+	-모든 스레드가 한단계씩 같은 속도로 진행하기 위해 대기합니다.
 	shear_sort
-	-create and terminate thread, initialize conditional variable
-
-Makefile
--"make shear" command will make file 'shear'
-	command line: make shear
-	command line: ./shear
-
-input.txt
--text file with 4x4 array
-
-input_2.txt
--text file with 5x5 array
-
-pyrite access denied
-could not test file on pyrite. Tried to access IT support, but did not respond.
-
-15/03/2019
+	-스레드를 만들고 종료시킵니다.
